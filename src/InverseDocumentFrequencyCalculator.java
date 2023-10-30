@@ -23,6 +23,10 @@ public class InverseDocumentFrequencyCalculator implements IInverseFreq {
             ////////////////////////////
             //WRITE HERE
             //////////////////////////
+
+            for (String word : words) {
+                if (!termsInCurrentSong.contains(word)) {
+                    termsInCurrentSong.add(word);
         }
         
         return result;
