@@ -7,9 +7,11 @@ public class TermFrequencyCalculator implements ITermFrequency {
     @Override
     public TreeMap<String, TreeMap<String, Double>> getTermFrequency(TreeMap<String, String> songLyrics) {
         TreeMap<String, TreeMap<String, Double>> result = new TreeMap<String, TreeMap<String, Double>> ();
-        
+
+
         for(String songTitle: songLyrics.keySet())
         {
+            int count = 0;
             // For each song you have to create TF values
             TreeMap<String, Double> tempMap = new TreeMap<String, Double>();
 
@@ -18,7 +20,8 @@ public class TermFrequencyCalculator implements ITermFrequency {
             String[] words = lyric.split(" ");
             
             // Calculate the Term Frequency (TF) Values here and save them in tempMap
-            
+
+
             // You might need to introduce other methods and additional variables
             
             // TF for Term (word) X in Song S is calculated as frequency of that X divided 
@@ -35,5 +38,7 @@ public class TermFrequencyCalculator implements ITermFrequency {
         
         return result;
     }
+
+
 
 }
