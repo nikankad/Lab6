@@ -1,7 +1,11 @@
 package Lab6;
 
 import java.util.TreeMap;
-
+/**
+ * @Author: Liban Dahir
+ * @Date: 2023-10-30
+ * @Version 1.0
+ */
 public class SearchEngine {
     // TreeMap of songs title and TreeMap of 
     TreeMap<String, TreeMap<String, Double>> TFValues;
