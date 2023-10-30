@@ -1,21 +1,34 @@
 package Lab6;
 
 import java.util.TreeMap;
+import java.util.stream.Stream;
 
-public class TermFrequencyCalculator implements ITermFrequency {
-
+/**
+ *
+ * @since 30 October 2023
+ * @author Behrooz Mansouri, Julian Edwards
+ *
+ */
+public class TermFrequencyCalculator implements ITermFrequency
+{
+    /**
+     * @param songLyrics TreeMap of Song titles as the key, with their lyrics as values
+     * @return TreeMap with song title as the key, and value representing a TreeMap. In the inner TreeMap
+     * each key is a word, with term frequency saved as a double
+     *
+     * @since 30 October 2023
+     * @author Behrooz Mansouri, Julian Edwards
+     */
     @Override
-    public TreeMap<String, TreeMap<String, Double>> getTermFrequency(TreeMap<String, String> songLyrics) {
-        TreeMap<String, TreeMap<String, Double>> result = new TreeMap<String, TreeMap<String, Double>> ();
-        
-        for(String songTitle: songLyrics.keySet())
-        {
+    public TreeMap<String, TreeMap<String, Double>> getTermFrequency(final TreeMap<String, String> songLyrics) {
+        final TreeMap<String, TreeMap<String, Double>> result = new TreeMap<>();
+        for(final String songTitle: songLyrics.keySet()) {
             // For each song you have to create TF values
-            TreeMap<String, Double> tempMap = new TreeMap<String, Double>();
+            final TreeMap<String, Double> tempMap = new TreeMap<>();
 
             // current lyrics
-            String lyric = songLyrics.get(songTitle);
-            String[] words = lyric.split(" ");
+            final String lyric = songLyrics.get(songTitle);
+            final String[] words = lyric.split(" ");
             
             // Calculate the Term Frequency (TF) Values here and save them in tempMap
             
@@ -27,7 +40,8 @@ public class TermFrequencyCalculator implements ITermFrequency {
             ////////////////////////////
             //WRITE HERE
             //////////////////////////
-            
+
+            tempMap.put(lyric, Stream.of(words).filter(lyric::equals).count() / (double)words.length);
             
             // After Calculaion
             result.put(songTitle, tempMap);
