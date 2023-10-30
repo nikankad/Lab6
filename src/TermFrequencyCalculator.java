@@ -31,7 +31,8 @@ public class TermFrequencyCalculator implements ITermFrequency
             final String[] words = lyric.split(" ");
             
             // Calculate the Term Frequency (TF) Values here and save them in tempMap
-            
+
+
             // You might need to introduce other methods and additional variables
             
             // TF for Term (word) X in Song S is calculated as frequency of that X divided 
@@ -49,5 +50,7 @@ public class TermFrequencyCalculator implements ITermFrequency
         
         return result;
     }
+
+
 
 }

@@ -1,5 +1,3 @@
-package Lab6;
-
 import java.util.TreeMap;
 
 public class SearchEngine {
@@ -41,12 +39,28 @@ public class SearchEngine {
                 // Note that IDF are global and not related to a specific song
                 // But TF values for a query word is different among different songs
                 
-                ////////////////////////////
-                //WRITE HERE
-                //////////////////////////
+                // Get the TF value for the current song and query word
+                double tf = 0;
+                TreeMap<String, Double> songTFValues = TFValues.get(songTitle);
+                if (songTFValues != null) {
+                    Double tfValue = songTFValues.get(queryWord);
+                    if (tfValue != null) {
+                        tf = tfValue;
+                    }
+                }
+                
+                // Get the IDF value for the query word
+                double idf = 0;
+                Double idfValue= IDFValues.get(queryWord);
+                if (idfValue != null) {
+                    idf = idfValue;
+                }
+                
+                // Calculate the TF-IDF value for the query word and add it to the score
+                score += tf * idf;
             }
             
-            if (score>maxScore)
+            if (score > maxScore)
             {
                 maxScore = score;
                 resultSong = songTitle;
@@ -56,4 +70,3 @@ public class SearchEngine {
         // You should return the name of the song with the highest TF-IDF value
         return resultSong;
     }
-}
