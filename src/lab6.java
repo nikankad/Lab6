@@ -1,3 +1,4 @@
+// By Nikan Kadkhodazadeh
 package Lab6;
 
 import java.io.IOException;
