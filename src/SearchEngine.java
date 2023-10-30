@@ -47,7 +47,7 @@ public class SearchEngine {
                 TreeMap<String, Double> songTFValues = TFValues.get(songTitle);
                 if (songTFValues != null) {
                     Double tfValue = songTFValues.get(queryWord);
-                    System.out.println(songTFValues);
+                    System.out.println(tfValue);
 
                     if (tfValue != null) {
                         tf = tfValue;
